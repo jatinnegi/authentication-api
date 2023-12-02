@@ -28,7 +28,7 @@ $ source init.sh
 On Windows machine:
 
 ```shell
-$ init.bat
+$ .\init.bat
 ```
 
 Then run the following command to spin up the server on specified port:
@@ -57,7 +57,7 @@ $ npm run dev
 **Request**
 
 ```shell
-$ curl --header "Content-Type: application/json" --request POST --data '{"name":"John Doe","username": "john_doe","password":"password","age":"30","bio":"Backend enthusiast"}' http://localhost:1337/api/users/register
+curl -H "Content-Type: application/json" -X POST --data '{"name":"John Doe","username": "john_doe","password":"password","age":"30","bio":"Backend enthusiast"}' http://localhost:1337/api/users/register
 ```
 
 **Response**
@@ -80,14 +80,14 @@ $ curl --header "Content-Type: application/json" --request POST --data '{"name":
 **Request**
 
 ```shell
-$ curl --header "Content-Type: application/json" --request POST --data '{"username": "john_doe","password":"password"}' http://localhost:1337/api/users/login
+curl -H "Content-Type: application/json" --request POST --data '{"username": "john_doe","password":"password"}' http://localhost:1337/api/users/login
 ```
 
 **Response**
 
 ```
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwMTUzMTA4NSwiZXhwIjoxNzAxNTMyODg1fQ.hSXScNYjbE_-KpQAu0vLbBuvMReWihHc744jjhJRVos",
+    "token": <ACCESS_TOKEN>,
     "user": {
         "id": 1,
         "name": "John Doe",
@@ -103,7 +103,7 @@ $ curl --header "Content-Type: application/json" --request POST --data '{"userna
 **Request**
 
 ```shell
-$ curl --header "Authorization: Token <ACCESS_TOKEN>" http://localhost:1337/api/users/detail
+curl -H "Authorization: Token <ACCESS_TOKEN>" http://localhost:1337/api/users/detail
 ```
 
 **Response**
@@ -125,7 +125,7 @@ $ curl --header "Authorization: Token <ACCESS_TOKEN>" http://localhost:1337/api/
 **Request**
 
 ```shell
-$ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" --data '{"name":"Jane Doe","username":"jane_doe","age":"35","bio":"Frontend enthusiast"}' -X PUT http://localhost:1337/api/users/update
+curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" --data '{"name":"Jane Doe","username":"jane_doe","age":"35","bio":"Frontend enthusiast"}' -X PUT http://localhost:1337/api/users/update
 ```
 
 **Response**
@@ -148,7 +148,7 @@ $ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/js
 **Request**
 
 ```shell
-$ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" --data '{"password":"password"}' -X DELETE http://localhost:1337/api/users/delete
+curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" --data '{"password":"password"}' -X DELETE http://localhost:1337/api/users/delete
 ```
 
 **Response**
@@ -164,7 +164,7 @@ $ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/js
 **Request**
 
 ```shell
-$ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" -X POST http://localhost:1337/api/users/logout
+curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" -X POST http://localhost:1337/api/users/logout
 ```
 
 **Response**
@@ -180,7 +180,7 @@ $ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/js
 **Request**
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"username":"jane_doe","password":"password"}' -X POST http://localhost:1337/api/users/recover
+curl -H "Content-Type: application/json" --data '{"username":"jane_doe","password":"password"}' -X POST http://localhost:1337/api/users/recover
 ```
 
 **Response**
@@ -196,7 +196,7 @@ $ curl -H "Content-Type: application/json" --data '{"username":"jane_doe","passw
 **Request**
 
 ```shell
-$ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" --data '{"oldPassword":"password","newPassword":"new_password"}' -X POST http://localhost:1337/api/users/password-reset
+curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json" --data '{"oldPassword":"password","newPassword":"new_password"}' -X POST http://localhost:1337/api/users/password-reset
 ```
 
 **Response**
