@@ -5,6 +5,7 @@ export const userRegisterValidator = [
   check("name", "Name is required").notEmpty(),
   check("username", "Username is required").notEmpty(),
   check("username").custom(async (value) => {
+    if (!value) throw new Error("Username is required");
     const existingUser = await User.findOne({
       where: {
         username: value,
