@@ -139,6 +139,7 @@ curl -H "Authorization: Token <ACCESS_TOKEN>" -H "Content-Type: application/json
         "username": "john_doe",
         "age": 30,
         "bio": "Backend enthusiast"
+        "updatedAt": <UPDATED_DATE>,
     }
 }
 ```
